@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USA</title>
+  <link rel="icon" href="/image/Logo2.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="icon" href="/image/Logo2.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/MyKhmerNews/MKNs.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiar ">
+    <div class="container-fluid" style="width: 100%; height: 40px; margin-bottom: 45px;margin-top: 20px;">
+      <div>
+        <a class="navbar-brand" href="#">
+          <img src="/image/Logo2.png" alt="logo" style="width: 140px; height: 120px; margin-top: 10px;">
+        </a>
+        <button style="justify-content: flex-end; margin-left: 110px;"  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls = "navbarSupportedContent" aria-expanded="false"
+          onclick="Myclick()" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse ms-4" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Language/News/Home/Home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Sport/Sport.html">Sport</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Technology/Technology.html">Technology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Life&Society/Cambodian1.html">Life and Society</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Scholarship/Scholarship.html">Scholarship</a>
+          </li>
+        </ul>
+        <div style="display: flex;">
+          <div class="Consearch">
+            <div class="search-container">
+              <input type="text" id="searchInput"  placeholder="Search items..." onkeypress="handleKeyPress(event)" >
+              <button class="search-button" onclick="searchItems()"><i class="fa fa-search" title="Search"></i></button>
+            </div>
+          </div>
+          
+          <div class="language" style="margin-top: 20px;">
+            <ul class="navbar-nav me-lg-5">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Language
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/Language/News_khmer/USA/USA.html">
+                      <img src="/image/cambodia.png" alt="logo cambodia"
+                        style="width: 30px;height: 20px;margin-right: 4px;">Khmer
+                    </a></li>
+                  <li>
+                    <a class="dropdown-item" href="/Language/News/USA/USA.html">
+                      <img src="/image/English.png" alt="logo english"
+                        style="width: 30px;height: 20px;margin-right: 4px;">English
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- News Container -->
+  <span class="ClassTable">
+    <div class="news-container" id="productList">
+      <!-- Product items will be displayed here dynamically -->
+    </div>
+  </span>
+
+  <script>
+    // Sample data for products
+    const searchNews = [
+      {
+        id: 1,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThO3A4hdVME6mEjS5463qwHB1tLjA6DWXoYHfM16s5oOZukm6Iqkatbet3niZTs4-k_SZOo8BnuEI6aKP-FRFh-w',
+        title: ["Donald Trump 45th president of the United States.", "Donald Trump ប្រធានាធិបតីទី 45 នៃសហរដ្ឋអាមេរិក"],
+        link: '/Language/News/USA/Title_USA_2.html'
+      },
+      {
+        id: 2,
+        image: 'https://www.diyfixtool.com/cdn/shop/articles/1_b4da78b0-d36f-4f6f-b3ba-884030dbb2c2_800x.jpg?v=1718446790',
+        title: ["Apple introduces iPhone 16 and iPhone 16 Plus Built for Apple Intelligence with the all-new A18 chip, both models feature Camera Control, powerful upgrades to the advanced camera system, the Action button to quickly access useful features, and a big boost in battery life.", "Apple ណែនាំ iPhone 16 និង iPhone 16 Plus បង្កើតឡើងសម្រាប់ Apple Intelligence ជាមួយនឹងបន្ទះឈីប A18"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News/USA/Title_USA_1.html'
+      },
+      {
+        id: 3,
+        image: 'https://i.abcnewsfe.com/a/01726741-e96b-464f-8f79-1791ae31ee76/caitlin-clark-2-gty-dp-040824_1712590617548_hpEmbed_3x2.jpg',
+        title: ["Who is Caitlin Clark? The college star who has transformed women's basketball.", "តើ Caitlin Clark ជានរណា? តារាមហាវិទ្យាល័យដែលបានប្រែក្លាយបាល់បោះនារី"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News/USA/Title_USA_3.html'
+      },
+      {
+        id: 4,
+        image: 'https://www.scti.co.nz/-/media/project/scti/nz/images/travel-advice/culture-in-the-usa/culture-in-the-usa-alaska-900x675.jpg?h=675&w=900&hash=E9F4986BCD50141BCFFEC4905BBD9E08',
+        title: ["Midwestern USA Culture tips for the Midwest.","អាមេរិកខាងលិច ការណែនាំអំពីវប្បធម៌សម្រាប់តំបន់កណ្តាលខាងលិច"],
+        link: '/Language/News/USA/Title_USA_4.html'
+      },
+      {
+        id: 5,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYRLNdNWclf7ko7U0oUEHlRSFMLytByTArLowCoRkkN5QolRgviBFhu1RA4mzlhb5sI6w&usqp=CAU',
+        title: ["Food Cultur USA American food and the flavors of diversity.", "Food Cultur USA អាហារអាមេរិក និងរសជាតិនៃភាពចម្រុះ"],
+        link: '/Language/News/USA/Title_USA_5.html'
+      },
+      {
+        id: 6,
+        image: 'https://civilisable.com/wp-content/uploads/2024/02/Traditional_American_Clothing_for-women-12.2.2024.jpg',
+        title: ["American traditional clothing Traditional American Clothing: Roots, Customs, and Its Cultural Impact.", "សម្លៀកបំពាក់ប្រពៃណីអាមេរិក សំលៀកបំពាក់ប្រពៃណីអាមេរិក៖ ឫសគល់ ទំនៀមទម្លាប់ និងផលប៉ះពាល់វប្បធម៌របស់វា"],
+        link: '/Language/News/USA/Title_USA_6.html'
+      },
+      {
+        id: 7,
+        image: 'https://qph.cf2.quoracdn.net/main-qimg-d83c2d6c31d76cd87edffcf7e2c8f904-lq',
+        title: ["American Blueberry What is United Sate' National fruit?.", "American Blueberry តើអ្វីទៅជាផ្លែឈើជាតិរបស់សហរដ្ឋអាមេរិក?"],
+        link: '/Language/News/USA/Title_USA_7.html'
+      },
+      {
+        id: 8,
+        image: 'https://student-cms.prd.timeshighereducation.com/sites/default/files/styles/default/public/2021-09/harvard-university-campus.jpg?itok=SK_1MUqi',
+        title: ["Best universities in the United States 2025 Which is the top college in the US?","សាកលវិទ្យាល័យល្អបំផុតនៅសហរដ្ឋអាមេរិក 2025 តើមួយណាជាមហាវិទ្យាល័យកំពូលនៅអាមេរិក?"],
+        link: '/Language/News/USA/Title_USA_8.html'
+      },
+      {
+        id: 9,
+        image: 'https://www.aljazeera.com/wp-content/uploads/2024/09/2024-08-29T153734Z_1462001497_UP1EK8T17ELMB_RTRMADP_3_SOCCER-CHAMPIONS-DRAW-1726237016.jpg?resize=770%2C513&quality=80',
+        title: ["Real Madrid (2009–2018) Ronaldo secured a move to Real Madrid before the start of the 2009–2010 season.", "Real Madrid (2009-2018) Ronaldo ផ្ទេរទៅ Real Madrid នៅឆ្នាំ 2009-2010"],
+        link: '/Language/News/USA/Title_USA_9.html'
+      },
+
+    ];
+
+    // Function to display items
+    const displayItems = (items) => {
+      const productList = document.getElementById('productList');
+      productList.innerHTML = items.map(item => {
+        return `
+          <div class="news-item">
+            <a href="${item.link}">
+              <img src="${item.image}" alt="${item.title[0]}">
+              <h3>${item.title[0]}</h3>
+            
+            </a>
+          </div>
+        `;
+      }).join('');
+    };
+
+    // Function to search items
+    function searchItems() {
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+      const filteredItems = searchNews.filter(item => {
+        return item.title.some(title => title.toLowerCase().includes(searchQuery));
+      });
+      displayItems(filteredItems);
+    }
+
+    // Function to clear the search
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      displayItems(searchNews); // Display all items when search is cleared
+    }
+
+    // Initial display of all items
+    displayItems(searchNews);
+
+
+
+    // key support the Enter   
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        searchItems();
+      }
+    }
+
+
+
+  </script>
+
+
+
+
+
+  <!-- End Of Scroll -->
+
+  <span class="nav-class">
+    <div id="scroll-end-table" class="hidden-table responsive-table-wrapper">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th>Relation</th>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Social Media</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CEO</td>
+            <td>
+              <a href="https://web.facebook.com/thyrith.heng">
+                <img src="/image/Profile.jpg" alt="Logo" class="logoEnd">
+              </a>
+            </td>
+            <td>Heng Thirith</td>
+            <td>(+855) 069-297-337</td>
+            <td>
+              <a href="https://web.facebook.com/thyrith.heng" target="_blank" class="aEnd"><i class="fab fa-facebook"></i></a>
+              <a href="https://x.com/ThirithH22839" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Assistant</td>
+            <td>
+              <a href="https://web.facebook.com/chea.zhao">
+                <img src="/image/vichea.png" alt="Logo" class="logoEnd">
+              </a>
+            </td>
+            <td>Chorn Chhay Vanichea</td>
+            <td>(+855) 078-551-379</td>
+            <td>
+              <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i class="fab fa-facebook"></i></a>
+              <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </span>
+  
+<script src="/MyKhmerNews/MKNs.js"></script>
+
+
+</body>
+
+</html>

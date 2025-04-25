@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="icon" href="/image/Logo2.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="icon" href="/image/Logo2.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/MyKhmerNews/MKNs.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiar ">
+    <div class="container-fluid" style="width: 100%; height: 40px; margin-bottom: 45px;margin-top: 20px;">
+      <div>
+        <a class="navbar-brand" href="#">
+          <img src="/image/Logo2.png" alt="logo" style="width: 140px; height: 120px; margin-top: 10px;">
+        </a>
+        <button style="justify-content: flex-end; margin-left: 110px;"  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls = "navbarSupportedContent" aria-expanded="false"
+          onclick="Myclick()" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse ms-4" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Language/News_khmer/Home/Home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News_khmer/Sport/Sport.html">Sport</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News_khmer/Technology/Technology.html">Technology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News_khmer/Life&Society/Cambodian1.html">Life and Society</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News_khmer/Scholarship/Scholarship.html">Scholarship</a>
+          </li>
+        </ul>
+
+        <div style="display: flex;">
+          <div class="Consearch">
+            <div class="search-container">
+              <input type="text" id="searchInput"  placeholder="Search items..." onkeypress="handleKeyPress(event)" >
+              <button class="search-button" onclick="searchItems()"><i class="fa fa-search" title="Search"></i></button>
+            </div>
+          </div>
+          
+          <div class="language" style="margin-top: 20px;">
+            <ul class="navbar-nav me-lg-5">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Language
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/Language/News_khmer/USA/USA.html">
+                      <img src="/image/cambodia.png" alt="logo cambodia"
+                        style="width: 30px;height: 20px;margin-right: 4px;">Khmer
+                    </a></li>
+                  <li>
+                    <a class="dropdown-item" href="/Language/News_khmer/USA/USA.html">
+                      <img src="/image/English.png" alt="logo english"
+                        style="width: 30px;height: 20px;margin-right: 4px;">English
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- News Container -->
+  <span class="ClassTable">
+    <div class="news-container" id="productList">
+      <!-- Product items will be displayed here dynamically -->
+    </div>
+  </span>
+
+  <script>
+    // Sample data for products
+    const searchNews = [
+      {
+        // Cambodia
+        id: 1,
+        image: 'https://www.digitaltrends.com/wp-content/uploads/2024/11/OnePlus-13-vs-Galaxy-S24-Ultra.jpeg?fit=1920%2C1080&p=1',
+        title: ["We've seen Samsung make videos several times before. Now Apple is releasing a video criticizing Samsung again. ", "ធ្លាប់តែឃើញ Samsung ធ្វើវីដេអូឌឺដង Apple ឥឡូវ បញ្ចេញវីដេអូ ផ្លែផ្កាដាក់ឲ្យ Samsung ម្តង", "Samsung"],
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_1.html'
+      },
+      {
+        id: 2,
+        image: 'https://tech-cambodia.com/cms/assets/ff89ccb0-e48b-4321-89ef-429dc15f8ed9',
+        title: ["How big is this! The Red Magic 10 Series will pack a 7,000mAh battery as well as...", "ធំអីធំយ៉ាងនេះ! Red Magic 10 Series នឹងញាត់ថ្មទំហំ 7,000mAh ក៏ដូចជា...", "Bettery", "Power", "ថ្ម"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_5.html'
+      },
+      {
+        id: 3,
+        image: 'https://tech-cambodia.com/cms/assets/db658993-d3db-4395-a72e-7ea607983402',
+        title: ["It's finally here! The new Kindle paperback e-reader is now available...", "ទីបំផុតមានហើយ! ម៉ាស៊ីនអានសៀវភៅ ដូចក្រដាសសៀវភៅ Kindle ចេញថ្មី ឥឡូវបង្ហាញ...", "Kindle", "Kidle"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_6.html'
+      },
+      {
+        id: 4,
+        image: 'https://tech-cambodia.com/cms/assets/1f6be551-66d8-4815-b429-254384c0aa6b',
+        title: [" Tesla reveals the price of its affordable Optimus Gen2 robot, which can be used as a houseboy", "Tesla បង្ហើបតម្លៃ រូបូត Optimus Gen2 តម្លៃធូរៗ អាចយកមកធ្វើគូលីនៅផ្ទះបាន", "Tesla", "Tesla Model Y"],
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_3.html'
+      },
+      {
+        id: 5,
+        image: 'https://tech-cambodia.com/cms/assets/f9007160-1ed7-4b69-a1fa-d7664d7208a4',
+        title: ["Apple quietly releases new iPad Mini with A17 Pro chip and Apple Intelligence ", "ស្ងាត់ៗ Apple លួចបញ្ចេញ iPad Mini ជំនាន់ថ្មី ញាត់ឈីប A17 Pro ប្រើ Apple Intelligence", "AI Apple", "Apple"],
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_7.html'
+      },
+      {
+        id: 6,
+        image: 'https://tech-cambodia.com/cms/assets/639ef719-6511-43b1-b1da-9bbcd04f35a7',
+        title: ["TikTok's parent company quietly releases AI-powered headsets that talk directly to AI", "ស្ងាត់ៗ ក្រុមហ៊ុនមេរបស់ TikTok ចេញកាសបញ្ចូលព្រលឹង AI និយាយផ្ទាល់ជាមួយ AI ", "Tiktok", "tiktok", "Titok"],
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_8.html'
+      },
+      {
+        id: 7,
+        image: 'https://tech-cambodia.com/cms/assets/fdfb8057-08a1-46c5-9c21-0c630f4b0be3',
+        title: ["Less confusing Screenshot Chat, they are very annoying, they know they will be ruined if this function is enabled.", "តិចច្រឡំ Screenshot Chat គេផ្តេសផ្តាស គេដឹងខ្ទេចគ្មានសល់ទេ បើសិនបើកមុខងារមួយនេះ", "Facebook"],
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_2.html'
+      },
+      {
+        id: 8,
+        image: 'https://liftedasia.com/assets/content_images/VannDa-beer-660x440.webp',
+        title: ["Top rapper of Cambodian<br> Mr. Man Vannda", "កំពូល តារាចម្រៀងប្រចាំប្រទេសកម្ពុជា ", "លោក​ ម៉ាន់ វណ្ណដា", "Vannda", "vannda"],
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_4.html'
+      },
+      {
+        id: 9,
+        image: 'https://tech-cambodia.com/cms/assets/16662ed5-f006-44e6-8a11-e00201407d6d',
+        title: ["It's clear, much cheaper than before! This is the official price of the company selling the iPhone 16 Pro ", "ច្បាស់ហើយ ធូរជាងមុនឆ្ងាយណាស់! នេះជាតម្លៃផ្លូវការរបស់ក្រុមហ៊ុន លក់ iPhone 16 Pro ", "apple"],
+        link: '/Language/News_khmer/Life&Society/Title_Cambodia_9.html'
+      },
+
+
+      //USA
+
+      {
+        id: 1,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThO3A4hdVME6mEjS5463qwHB1tLjA6DWXoYHfM16s5oOZukm6Iqkatbet3niZTs4-k_SZOo8BnuEI6aKP-FRFh-w',
+        title: ["Donald Trump 45th president of the United States.", "Donald Trump ប្រធានាធិបតីទី 45 នៃសហរដ្ឋអាមេរិក"],
+        link: '/Language/News_khmer/USA/Title_USA_2.html'
+      },
+      {
+        id: 2,
+        image: 'https://www.diyfixtool.com/cdn/shop/articles/1_b4da78b0-d36f-4f6f-b3ba-884030dbb2c2_800x.jpg?v=1718446790',
+        title: ["Apple introduces iPhone 16 and iPhone 16 Plus Built for Apple Intelligence with the all-new A18 chip, both models feature Camera Control, powerful upgrades to the advanced camera system, the Action button to quickly access useful features, and a big boost in battery life.", "Apple ណែនាំ iPhone 16 និង iPhone 16 Plus បង្កើតឡើងសម្រាប់ Apple Intelligence ជាមួយនឹងបន្ទះឈីប A18"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/USA/Title_USA_1.html'
+      },
+      {
+        id: 3,
+        image: 'https://i.abcnewsfe.com/a/01726741-e96b-464f-8f79-1791ae31ee76/caitlin-clark-2-gty-dp-040824_1712590617548_hpEmbed_3x2.jpg',
+        title: ["Who is Caitlin Clark? The college star who has transformed women's basketball.", "តើ Caitlin Clark ជានរណា? តារាមហាវិទ្យាល័យដែលបានប្រែក្លាយបាល់បោះនារី"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/USA/Title_USA_3.html'
+      },
+      {
+        id: 4,
+        image: 'https://www.scti.co.nz/-/media/project/scti/nz/images/travel-advice/culture-in-the-usa/culture-in-the-usa-alaska-900x675.jpg?h=675&w=900&hash=E9F4986BCD50141BCFFEC4905BBD9E08',
+        title: ["Midwestern USA Culture tips for the Midwest.", "អាមេរិកខាងលិច ការណែនាំអំពីវប្បធម៌សម្រាប់តំបន់កណ្តាលខាងលិច"],
+        link: '/Language/News_khmer/USA/Title_USA_4.html'
+      },
+      {
+        id: 5,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYRLNdNWclf7ko7U0oUEHlRSFMLytByTArLowCoRkkN5QolRgviBFhu1RA4mzlhb5sI6w&usqp=CAU',
+        title: ["Food Cultur USA American food and the flavors of diversity.", "Food Cultur USA អាហារអាមេរិក និងរសជាតិនៃភាពចម្រុះ"],
+        link: '/Language/News_khmer/USA/Title_USA_5.html'
+      },
+      {
+        id: 6,
+        image: 'https://civilisable.com/wp-content/uploads/2024/02/Traditional_American_Clothing_for-women-12.2.2024.jpg',
+        title: ["American traditional clothing Traditional American Clothing: Roots, Customs, and Its Cultural Impact.", "សម្លៀកបំពាក់ប្រពៃណីអាមេរិក សំលៀកបំពាក់ប្រពៃណីអាមេរិក៖ ឫសគល់ ទំនៀមទម្លាប់ និងផលប៉ះពាល់វប្បធម៌របស់វា"],
+        link: '/Language/News_khmer/USA/Title_USA_6.html'
+      },
+      {
+        id: 7,
+        image: 'https://qph.cf2.quoracdn.net/main-qimg-d83c2d6c31d76cd87edffcf7e2c8f904-lq',
+        title: ["American Blueberry What is United Sate' National fruit?.", "American Blueberry តើអ្វីទៅជាផ្លែឈើជាតិរបស់សហរដ្ឋអាមេរិក?"],
+        link: '/Language/News_khmer/USA/Title_USA_7.html'
+      },
+      {
+        id: 8,
+        image: 'https://student-cms.prd.timeshighereducation.com/sites/default/files/styles/default/public/2021-09/harvard-university-campus.jpg?itok=SK_1MUqi',
+        title: ["Best universities in the United States 2025 Which is the top college in the US?", "សាកលវិទ្យាល័យល្អបំផុតនៅសហរដ្ឋអាមេរិក 2025 តើមួយណាជាមហាវិទ្យាល័យកំពូលនៅអាមេរិក?"],
+        link: '/Language/News_khmer/USA/Title_USA_8.html'
+      },
+      {
+        id: 9,
+        image: 'https://www.aljazeera.com/wp-content/uploads/2024/09/2024-08-29T153734Z_1462001497_UP1EK8T17ELMB_RTRMADP_3_SOCCER-CHAMPIONS-DRAW-1726237016.jpg?resize=770%2C513&quality=80',
+        title: ["Real Madrid (2009–2018) Ronaldo secured a move to Real Madrid before the start of the 2009–2010 season.", "Real Madrid (2009-2018) Ronaldo ផ្ទេរទៅ Real Madrid នៅឆ្នាំ 2009-2010"],
+        link: '/Language/News_khmer/USA/Title_USA_9.html'
+      },
+
+
+      // Thailand 
+
+      {
+        id: 1,
+        image: 'https://www.indochinatravelpackages.com/wp-content/uploads/2015/06/Chao-Phraya-River-600x400.jpg',
+        title: ["Bangkok, the capital of Thailand, is located in the country’s center, on the Chao Phraya River’s delta. ", "ក្រុងបាងកក រាជធានី​នៃ​ប្រទេស​ថៃ ស្ថិត​នៅ​កណ្តាល​ប្រទេស​នៅ​តំបន់​ដី​ទន្លេ​ចៅប្រាយ៉ា"],
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_1.html'
+      },
+      {
+        id: 2,
+        image: 'https://internationalliving.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2Fwv75stsetqy3%2FDaKdXY2tkQGWeVQiCbSx7%2Fac01166282697e4e0cafb99180d35cd1%2FThailand_Featured.jpg%3Fq%3D60%26fit%3Dfill%26fm%3Dwebp&w=1920&q=60',
+        title: ["Interesting Thailand Facts For Kids,This is a brief description of the news article. It can be about any topic you like.", "ហេតុការណ៍គួរឱ្យចាប់អារម្មណ៍របស់ប្រទេសថៃសម្រាប់កុមារ នេះគឺជាការពិពណ៌នាសង្ខេបនៃអត្ថបទព័ត៌មាន"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_2.html'
+      },
+      {
+        id: 3,
+        image: 'https://admin.expatica.com/th/wp-content/uploads/sites/25/2024/03/cities-in-thailand-1536x1024.jpg',
+        title: ["Whether you have a family or are single, want to start a business, or retire, here are the best cities in Thailand to settle down.", "មិន​ថា​អ្នក​មាន​គ្រួសារ ឬ​នៅ​លីវ ចង់​ចាប់​ផ្ដើម​អាជីវកម្ម ឬ​ចូល​និវត្តន៍​ទេ នេះ​ជា​ទីក្រុង​ល្អ​បំផុត​ក្នុង​ប្រទេស​ថៃ​សម្រាប់​ការ​តាំង​លំនៅ"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_3.html'
+      },
+      {
+        id: 4,
+        image: 'https://www.travelandleisure.com/thmb/BT0NbtsK80y_P6FkFQvUzeIwvsw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/TAL-koh-phi-phi-PLACESTHAILAND1023-09b9d347b3cd4844b4ae19e4e06a9a6d.jpg',
+        title: [" 20 Best Places to Visit in Thailand — From the Country's Oldest National Park With Secret", "កន្លែងល្អបំផុតចំនួន 20 ដើម្បីទស្សនាក្នុងប្រទេសថៃ — ពីឧទ្យានជាតិចំណាស់ជាងគេបំផុតរបស់ប្រទេសដែលមានអាថ៌កំបាំង"],
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_4.html'
+      },
+      {
+        id: 5,
+        image: 'https://feelfreetravel.com/blog/wp-content/uploads/2024/02/thailand-island-hopping-min.jpg',
+        title: [" Thailand Island Hopping: Ultimate Guide (2024)", " ការលោតកោះរបស់ប្រទេសថៃ៖ មគ្គុទ្ទេសក៍ចុងក្រោយ (២០២៤) "],
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_5.html'
+      },
+      {
+        id: 6,
+        image: 'https://media.timeout.com/images/105240236/750/562/image.webp',
+        title: ["  Welcome to Bangkok", "សូមស្វាគមន៍មកកាន់ទីក្រុងបាងកក "],
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_6.html'
+      },
+      {
+        id: 7,
+        image: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/33/fb/5c/pattaya.jpg?w=1400&h=500&s=1',
+        title: ["Pattaya, Thailand", "ប៉ាតាយ៉ា ប្រទេសថៃ"],
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_7.html'
+      },
+      {
+        id: 8,
+        image: 'https://www.sawasdeetuktuk.com/wp-content/uploads/2023/10/Grand-Palace-Bangkok-01-1140x530.jpg',
+        title: ["Grand Palace Bangkok is a well liked tourist spot among foreigners.", "Grand Palace Bangkok ជា​កន្លែង​ទេសចរណ៍​ដ៏​ពេញ​ចិត្ត​ក្នុង​ចំណោម​ជន​បរទេស"],
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_8.html'
+      },
+      {
+        id: 9,
+        image: 'https://blog.airpaz.com/wp-content/uploads/Grand-Palace-Reaching-the-Grand-Palace-1.png',
+        title: ["The palace is located in the old city, on Na Phra Lan Road. No train passes the area.", "ព្រះបរមរាជវាំងមានទីតាំងនៅទីក្រុងចាស់ លើផ្លូវ Na Phra Lan  មិនមានរថភ្លើងឆ្លងកាត់តំបន់នោះទេ"],
+        link: '/Language/News_khmer/Thailand/Title_ThaiLand_9.html'
+      },
+
+
+      // Sport
+
+      {
+        id: 1,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/sabay-news/Srey-Sovandara/Srey-Sovandara4/675267f44ddb4_1733453760_small.jpg',
+        title: ["Leo Messi sends message to Barca fans, hopes to see them soon", "Leo Messi ផ្ញើ​សារ​ទៅ​អ្នក​គាំទ្រ​ Barca ​​សង្ឃឹម​បាន​ជួប​គ្នា​ឆាប់​ៗ "],
+        link: '/Language/News_khmer/Sport/Title_Sport_1.html'
+      },
+      {
+        id: 2,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/sabay-news/Srey-Sovandara/Srey-Sovandara4/673e7616171d2_1732146660_small.jpg',
+        title: ["Rodri reveals the special qualities of Ronaldo and Messi that everyone can overlook", "Rodri ​​លើក​ឡើង​ពី​ចំណុច​ពិសេស​របស់​ Ronaldo និង Messi ដែល​គ្រប់​គ្នា​អាច​មើល​រំលង"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Sport/Title_Sport_2.html'
+      },
+      {
+        id: 3,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/sabay-news/Sport-News/Local-Sports/Table-Tennis/Table-Tennis1/67581f147669f_1733828340_small.jpg',
+        title: ["Table Tennis Federation: The instructor from Australia has good techniques and shared his personal experience with the 25 trainees.", "សហព័ន្ធ​វាយ​កូន​ឃ្លី​លើតុ៖​ គ្រូ​ឧ​ទ្ទេសមក​ពី​អូស្ត្រាលី​មាន​បច្ចេកទេស​ល្អ​មែន​ និង​បាន​ចែក​រំលែក​​​បទ​ពិសោធ​ផ្ទាល់ៗ​ដល់​សិក្ខាកាម​ទាំង​២៥​រូប"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Sport/Title_Sport_3.html'
+      },
+      {
+        id: 4,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/sabay-news/Sport-News/Local-Sports/Swimming/SWIM-5/6756a5ee5a000_1733731800_small.jpg',
+        title: [" Secretary General of the Swimming Federation: Coach training course is a special opportunity for trainees to expand their knowledge", " អគ្គលេខាសហព័ន្ធ​ហែលទឹក៖​ វគ្គ​បណ្ដុះបណ្ដាល​គ្រូ​បង្វឹក​ជា​ឱកាស​ពិសេស​សម្រាប់​សិក្ខាកាម​ពង្រីក​​ចំណេះដឹង"],
+        link: '/Language/News_khmer/Sport/Title_Sport_4.html'
+      },
+      {
+        id: 5,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/sabay-news/Srey-Sovandara/Srey-Sovandara4/673d2b6262aba_1732062000_small.jpg',
+        title: ["The 10 highest-paid football managers in the world in 2024", " អ្នក​ចាត់​ក្រុម​បាល់ទាត់​ទាំង​១០​ដែល​ទទួល​បាន​​ថ្លៃ​ពលកម្ម​ខ្ពស់​បំផុត​ក្នុង​លោក​​​ឆ្នាំ​២០២៤"],
+        link: '/Language/News_khmer/Sport/Title_Sport_5.html'
+      },
+      {
+        id: 6,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/sabay-news/Sport-News/Local-Sports/Swimming/SWIM-3/672830d88f067_1730687160_small.jpg',
+        title: ["Host Cambodia ranks second in the Southeast Asian Open Water Swimming Championship as of November 3, 2024.", "ម្ចាស់​ផ្ទះ​កម្ពុជា​ ឈរ​លេខ ២​ នៃ​ការ​ប្រកួត​កីឡាហែលទឹក​ពាក់​ជើងទា​ជើងឯក​អាស៊ីអាគ្នេយ៍​គិត​ត្រឹម​ថ្ងៃ​ទី៣ វិច្ឆិកា ២០២៤"],
+        link: '/Language/News_khmer/Sport/Title_Sport_6.html'
+      },
+      {
+        id: 7,
+        image: 'https://media.sabay.com/media/sabay-news/Srey-Sovandara/Srey-Sovandara3/6712f95fe4ff3_1729296720.png',
+        title: ["Barca reject PSG's incredible offer for Yamal", "Barca ច្រាន​ចោល​តម្លៃ​​​កប់​ពពក​ដែល​ PSG ស្នើទិញ​ Yamal ឮហើយ​ស្ទើរ​មិនគួរឲ្យជឿ"],
+        link: '/Language/News_khmer/Sport/Title_Sport_7.html'
+      },
+      {
+        id: 8,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/Tepsovanmoly(1)/dfhghrty/67566d5fdbf13_1733717340_small.jpg',
+        title: ["Support for the Cambodian national football team has increased following the victory of the Cambodian women's football team.", "សន្ទុះការគាំទ្រក្រុមជម្រើសបាល់ទាត់កម្ពុជា មានការកើនឡើង ក្រោយជ័យជំនះរបស់ក្រុមបាល់ទាត់នារីកម្ពុជា"],
+        link: '/Language/News_khmer/Sport/Title_Sport_8.html'
+      },
+      {
+        id: 9,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/sabay-news/Sport-News/Local-Sports/Autor-racing/OFF-ROAD3/673ae9bc6b0af_1731914160_small.jpg',
+        title: ["National and international OFF ROAD vehicles will rock Preah Sihanouk Province from November 28 to December 1, 2024", "រថយន្ត​ OFF ROAD ជាតិ-អន្តរជាតិ​ នឹង​ធ្វើ​ឲ្យ​កក្រើក​ខេត្ត​ព្រះសីហនុ​ ២៨ ​វិច្ឆិកា ដល់ ១ ធ្នូ​ ឆ្នាំ​២០២៤"],
+        link: '/Language/News_khmer/Sport/Title_Sport_9.html'
+      },
+
+
+      // Technology
+
+      {
+        id: 1,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/TECH-KK/KOSAL/kosal082/67316ef24ec9f_1731292860_small.jpg',
+        title: ["What is satellite internet, and how is it different from the internet we use every day?", "អ្វីទៅអ៊ីនធឺណិតផ្កាយរណប ហើយខុសពីអ៊ីនធឺណិតយើងប្រើរាល់ថ្ងៃដូចម្ដេចខ្លះ?"],
+        link: '/Language/News_khmer/Technology/Title_Tech_1.html'
+      },
+      {
+        id: 2,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/TECH-KK/KOSAL/kosal046/6216f0c58e37d_1645670580_small.jpg',
+        title: ["Come see the MacBook with a full-screen, flexible body, which looks like this", "មកមើល MacBook ពាសអេក្រង់ពេញតួខ្លួនអាចបត់បែនបាន មានរូបរាងបែបនេះ"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Technology/Title_Tech_2.html'
+      },
+      {
+        id: 3,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/TECH-KK/KOSAL/kosal081/671b5304e3eea_1729843920_small.jpg',
+        title: ["Apple Mouse user has been haunted by nightmares for 9 years", "សុបិនអាក្រក់តាមលងអ្នកប្រើ Apple Mouse អស់ ៩ឆ្នាំ"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News_khmer/Technology/Title_Tech_3.html'
+      },
+      {
+        id: 4,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/TECH-KK/KOSAL/kosal046/621741c02e7f9_1645691280_small.jpg',
+        title: ["The gold iPhone model Steve Jobs uses 12 body parts, following the success of the father of Apple", "iPhone មាសម៉ូឌែល Steve Jobs ប្រើតួខ្លួន ១២ផ្នែក យកលំនាំតាមភាពជោគជ័យរបស់បិតា Apple "],
+        link: '/Language/News_khmer/Technology/Title_Tech_4.html'
+      },
+      {
+        id: 5,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/TECH-KK/KOSAL/kosal046/620f05f265235_1645151700_small.jpg',
+        title: ["Use 4 tricks to help your iPhone with nearly full memory come back to life", " ប្រើ ៤ក្បាច់ ជួយ iPhone ជិតពេញមេម៉ូរីឱ្យរស់ឡើងវិញ"],
+        link: '/Language/News_khmer/Technology/Title_Tech_5.html'
+      },
+      {
+        id: 6,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/Tepsovanmoly(1)/uoiupio/673c15f00993a_1731991020_small.jpg',
+        title: ["Don't forget to come and see the drone racing competition, a new creation by Cambodian youth, this weekend.", "កុំភ្លេចមកទស្សនា ការប្រកួតប្រណាំងដ្រូន ស្នាដៃបង្កើតថ្មីដោយយុវជនកម្ពុជា នៅចុងសប្ដាហ៍នេះ"],
+        link: '/Language/News_khmer/Technology/Title_Tech_6.html'
+      },
+      {
+        id: 7,
+        image: 'https://cdn.sabay.com/cdn/media.sabay.com/media/Samphy-2024/August(4)/Week-6-3/66c2b451f1a8d_1724036160_small.jpg',
+        title: ["Construction site for Cambodia's first electric vehicle assembly plant has been opened.", "រោងចក្រ​ដំឡើងរថយន្តអគ្គិសនីដំបូងគេនៅកម្ពុជា ត្រូវបានបើកការដ្ឋានសាងសង់ហើយ"],
+        link: '/Language/News_khmer/Technology/Title_Tech_7.html'
+      },
+      {
+        id: 8,
+        image: 'https://tech-cambodia.com/cms/assets/807e7074-f633-4b4a-8c17-77c89188f135',
+        title: ["Apple is in trouble now! They ordered only 1 iPhone 15 Pro Max 1T but mistakenly ordered 60 units", "ធ្ងន់កហើយ Apple ពេលនេះ! គេកម្មង់ iPhone 15 Pro Max 1T តែ 1គ្រឿង តែច្រឡំដាក់ឲ្យគេ 60គ្រឿង"],
+        link: '/Language/News_khmer/Technology/Title_Tech_8.html'
+      },
+      {
+        id: 9,
+        image: 'https://tech-cambodia.com/cms/assets/0d29f427-8533-4987-8128-17e829721e40',
+        title: ["OPPO CEO announces Find N3 Series launch, says it would be great if Apple released a foldable iPhone", "សម្ពោធ Find N3 Series រួច មេ OPPO ថាបើ Apple ចេញ iPhone បត់អេក្រង់ដែរ ល្អណាស់"],
+        link: '/Language/News_khmer/Technology/Title_Tech_9.html'
+      },
+
+    ];
+
+    // Function to display items
+    const displayItems = (items) => {
+      const productList = document.getElementById('productList');
+      productList.innerHTML = items.map(item => {
+        return `
+        <div class="news-item">
+          <a href="${item.link}">
+            <img src="${item.image}" alt="${item.title[0]}">
+            <h3>${item.title[1]}</h3>
+           
+          </a>
+        </div>
+      `;
+      }).join('');
+    };
+
+    // Function to search items
+    function searchItems() {
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+      const filteredItems = searchNews.filter(item => {
+        return item.title.some(title => title.toLowerCase().includes(searchQuery));
+      });
+      displayItems(filteredItems);
+    }
+
+    // Function to clear the search
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      displayItems(searchNews); // Display all items when search is cleared
+    }
+
+    // Initial display of all items
+    displayItems(searchNews);
+
+
+
+    // key support the Enter   
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        searchItems();
+      }
+    }
+
+
+
+  </script>
+
+
+
+
+
+ <!-- End Of Scroll -->
+ <span class="nav-class">
+  <div id="scroll-end-table" class="hidden-table responsive-table-wrapper">
+    <table class="responsive-table">
+      <thead>
+        <tr>
+          <th>Relation</th>
+          <th>Logo</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Social Media</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CEO</td>
+          <td>
+            <a href="https://web.facebook.com/thyrith.heng">
+              <img src="/image/Profile.jpg" alt="Logo" class="logoEnd">
+            </a>
+          </td>
+          <td>Heng Thirith</td>
+          <td>(+855) 069-297-337</td>
+          <td>
+            <a href="https://web.facebook.com/thyrith.heng" target="_blank" class="aEnd"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/ThirithH22839" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>Assistant</td>
+          <td>
+            <a href="https://web.facebook.com/chea.zhao">
+              <img src="/image/vichea.png" alt="Logo" class="logoEnd">
+            </a>
+          </td>
+          <td>Chorn Chhay Vanichea</td>
+          <td>(+855) 078-551-379</td>
+          <td>
+            <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i class="fab fa-facebook"></i></a>
+            <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</span>
+  <script src="/MyKhmerNews/MKNs.js"></script>
+
+  <!--    <p class="p1">${item.paragraph}</p>    -->
+
+</body>
+
+</html>

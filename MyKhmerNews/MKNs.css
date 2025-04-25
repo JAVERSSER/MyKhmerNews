@@ -1,0 +1,301 @@
+   
+   
+   /* Custom styles here */
+    .language .navbar-nav .nav-item .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 10px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      list-style: none;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .language .navbar-nav .nav-item:hover .dropdown-menu {
+      display: block;
+    }
+
+    .language .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+      padding: 8px 15px;
+      color: #333;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .language .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      position: relative;
+      text-decoration: none;
+      color: black;
+      transition: color 0.3s ease-in-out;
+      margin-top: 20px;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      color: blue;
+    }
+
+    .navbar-nav .nav-item .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background-color: blue;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .navbar-nav .nav-item.dropdown .nav-link::after {
+      display: none;
+    }
+
+    .Consearch {
+      margin-top: 20px;
+    }
+
+    .search-container {
+      float: right;
+      display: block;
+      display: flex;
+      justify-content: flex-end;
+      /* Aligns the container to the right */
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    #searchInput {
+      float: right;
+      display: block;
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      font-family: 'Khmer OS Battambang', 'Arial', sans-serif;
+    }
+
+    .search-button {
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      margin-left: 5px;
+      padding: 10px;
+    }
+
+    .search-button {
+      float: right;
+      display: block;
+      background-color: #007BFF;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .news-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .news-item h3 {
+      color: #333;
+      font-size: 15px;
+      font-family: "Khmer OS Battambang", sans-serif;
+      font-weight: bold;
+      /* letter-spacing: 2px;
+      word-spacing: 20px; 
+      text-indent: 20px;
+      white-space: pre;*/
+      line-height: 30px;
+    }
+
+    .news-item p {
+      color: #666;
+      font-size: 15px;
+      font-size: 15px;
+      font-family: "Khmer OS Battambang", sans-serif;
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .ClassTable img {
+      width: 100%;
+      height: 230px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      background-color: #222;
+      color: white;
+      text-align: center;
+      /* Center text horizontally = ផ្ដេក */
+      vertical-align: middle;
+      /* Center text vertically = បញ្ឈរ */
+      font-size: larger;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .logoEnd {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .fa-x {
+      position: relative;
+      left: 15px;
+    }
+
+    .fa-instagram {
+      position: relative;
+      left: 15px;
+    }
+
+    .fa-youtube {
+      position: relative;
+      left: 9px;
+    }
+
+    .fa-facebook {
+      position: relative;
+      left: 7px;
+    }
+
+    .fa-x,
+    .fa-youtube,
+    .fa-facebook,
+    .fa-instagram,
+    a:hover {
+      color: #007BFF;
+    }
+
+
+  .header-one {
+    background-color: #314141;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family:"Khmer OS Battambang", sans-serif;
+  }
+
+  .paragraph-one {
+    font-size: 1.1rem;
+    margin: 20px;
+    text-align: justify;
+    line-height: 1.8;
+    font-family:"Khmer OS Battambang", sans-serif;
+
+    font-size: 1.5rem;
+    color: black;
+  }
+
+ /* Responsive table container */
+.responsive-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Make table take full width and style it */
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+/* Add padding and borders to table cells */
+.responsive-table th,
+.responsive-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Responsive image size */
+.logoEnd {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Responsive anchor styles */
+.aEnd {
+  margin-right: 10px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+/* Optional: Improve readability on small devices */
+@media screen and (max-width: 600px) {
+  .responsive-table th,
+  .responsive-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .logoEnd {
+    width: 30px;
+    height: 30px;
+  }
+
+  .aEnd {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile full-screen dropdown menu when shown */
+@media (max-width: 991.98px) {
+  .navbar-collapse.show {
+    position: absolute;
+    top: 100%;
+    left: -10px;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* You can customize this */
+    z-index: 999;
+    padding: 20px;
+    margin-left: -60px;
+  }
+}  
+
+
+/* When the navbar menu is open, give it a background */
+.navbar-collapse.show {
+  background-color: #ffffff; /* You can change this to any color */
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  
+}

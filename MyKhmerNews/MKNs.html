@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyKhmerNews</title>
+  <link rel="stylesheet" href="MKNs.css" class="icon">
+  <link rel="icon" href="../image/Logo2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Logo Styles */
+
+
+#logoImage {
+width: 170px;
+height: 150px;
+
+position: absolute;
+top: -52px;
+left: 0rem;
+right: 40rem;
+bottom: 0;
+}
+
+.menu {
+display: flex;
+list-style: none;
+position: relative;
+left: 2rem;
+
+}
+
+.header-one {
+background-color: #314141;
+color: #fff;
+padding: 20px;
+text-align: center;
+font-size: 1.5rem;
+font-family:"Khmer OS Battambang", sans-serif;
+}
+
+.paragraph-one {
+font-size: 1.1rem;
+margin: 20px;
+text-align: justify;
+line-height: 1.8;
+font-family:"Khmer OS Battambang", sans-serif;
+font-size: 1.5rem;
+color: black;
+}
+
+/* Styling for Images */
+
+img {
+display: block;
+margin: 20px auto;
+max-width: 100%;
+border-radius: 8px;
+}
+#video {
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+}
+.news-item h3{
+  font-family:"Khmer OS Battambang", sans-serif;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navigation Menu with Logo on the Left -->
+  <nav class="newclass">
+    <span class="logo">
+      <div>
+        <img src="/image/Logo2.png" alt="Logo" id="logoImage" title="Logo">
+      </div>
+    </span>
+    <span class="hidden-text"></span>
+
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="#">Home</a>
+        <ul class="dropdown">
+          <li><a href="/Home/Home.html">Home</a></li>
+          <li><a href="/Home/History.html">History</a></li>
+          <li><a href="/Home/Like.html">Like</a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#"> Language </a>
+        <ul class="dropdown">
+          <li><a href="#">Khmer</a></li>
+          <li><a href="#">English</a></li>
+          
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#">News</a>
+        <ul class="dropdown">
+          <li><a href="/News/Cambodian/Cambodian.html">Cambodian </a></li>
+          <li><a href="#">USA </a></li>
+          <li><a href="#">Thailand</a></li>
+          <li><a href="#">Sports </a></li>
+          <li><a href="#">Technology </a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+          <a href="../AddTable/Add.html">Add</a></a>
+      </li>
+    </ul>
+
+  </nav>
+  <!-- btn search -->
+  
+  <div class="Consearch">
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search items...">
+        <button class="search-button" ><i class="fa fa-search" title="Search"></i></button>
+        <button class="clear-button" ><i class="fa fa-times" title="Delete Search items"></i></button>
+    </div>
+    
+    <div class="history-container hidden" id="historyContainer">
+        <div id="historyList"></div>
+    </div>
+    
+    <div class="list-container hidden" id="listContainer"></div>
+</div>
+
+
+  
+
+
+
+
+  <!-- Table and Link -->
+
+
+    <span class="ClassTable">
+        <div class="news-container">
+
+            
+          <!--  row 1  -->
+
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+
+
+          <!--  row 2  -->
+          
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+
+
+          <!--  row 3  -->
+          
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+          <div class="news-item">
+            <a href="#">
+              <img src="../image/licensed-image.jpg" alt="News Image">
+              <h3>News Title 1</h3>
+              <p>This is a brief description of the news article. It can be about any topic you like.</p>
+            </a>
+          </div>
+
+
+          <!--  row 4  -->
+          
+         
+          
+      
+      
+      
+      
+        
+        </div>
+    </span>
+
+ 
+
+      <!-- End Of Scroll -->
+
+  <span class="nav-class">
+    <div id="scroll-end-table" class="hidden-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Relation</th>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Social Media</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CEO</td>
+            <td><a href="https://web.facebook.com/thyrith.heng"><img src="/image/Profile.jpg" alt="Logo"
+                  class="logoEnd"></a>
+            </td>
+            <td>Heng Thirith</td>
+            <td>(+855) 069-297-337</td>
+            <td>
+              <a href="https://web.facebook.com/thyrith.heng" target="_blank" class="aEnd"><i
+                  class="fab fa-facebook"></i></a>
+              <a href="https://x.com/ThirithH22839" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>Assistant</td>
+            <td><a href="https://web.facebook.com/chea.zhao"><img src="/image/vichea.png" alt="Logo"
+                  class="logoEnd"></a>
+            </td>
+            <td>Chorn Chhay Vanichea</td>
+            <td>(+855) 078-551-379</td>
+            <td>
+              <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i
+                  class="fab fa-facebook"></i></a>
+              <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </span>
+
+
+
+  <script src="MKNs.js"></script>
+
+
+</body>
+
+</html>

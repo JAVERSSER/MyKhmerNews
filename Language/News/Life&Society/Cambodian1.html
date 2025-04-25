@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life&Society</title>
+  <link rel="icon" href="/image/Logo2.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="icon" href="/image/Logo2.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="/MyKhmerNews/MKNs.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiar ">
+    <div class="container-fluid" style="width: 100%; height: 40px; margin-bottom: 45px;margin-top: 20px;">
+      <div>
+        <a class="navbar-brand" href="#">
+          <img src="/image/Logo2.png" alt="logo" style="width: 140px; height: 120px; margin-top: 10px;">
+        </a>
+        <button style="justify-content: flex-end; margin-left: 110px;" class="navbar-toggler" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" onclick="Myclick()" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse ms-4" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Language/News/Home/Home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Sport/Sport.html">Sport</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Technology/Technology.html">Technology</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Life&Society/Cambodian1.html">Life and Society</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Language/News/Scholarship/Scholarship.html">Scholarship</a>
+          </li>
+        </ul>
+        
+        <div style="display: flex;">
+          <div class="Consearch">
+            <div class="search-container">
+              <input type="text" id="searchInput"  placeholder="Search items..." onkeypress="handleKeyPress(event)" >
+              <button class="search-button" onclick="searchItems()"><i class="fa fa-search" title="Search"></i></button>
+            </div>
+          </div>
+          
+          <div class="language" style="margin-top: 20px;">
+            <ul class="navbar-nav me-lg-5">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Language
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/Language/News_khmer/USA/USA.html">
+                      <img src="/image/cambodia.png" alt="logo cambodia"
+                        style="width: 30px;height: 20px;margin-right: 4px;">Khmer
+                    </a></li>
+                  <li>
+                    <a class="dropdown-item" href="/Language/News/USA/USA.html">
+                      <img src="/image/English.png" alt="logo english"
+                        style="width: 30px;height: 20px;margin-right: 4px;">English
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+
+  <span class="ClassTable">
+    <div class="news-container" id="productList">
+      <!-- Product items will be displayed here dynamically -->
+    </div>
+  </span>
+
+  <script>
+    // Sample data for products
+    const searchNews = [
+      {
+        id: 1,
+        // images: [
+        //   'https://www.digitaltrends.com/wp-content/uploads/2024/11/OnePlus-13-vs-Galaxy-S24-Ultra.jpeg?fit=1920%2C1080&p=1',
+        //   'https://tech-cambodia.com/cms/assets/ff89ccb0-e48b-4321-89ef-429dc15f8ed9'],
+        image: 'https://www.digitaltrends.com/wp-content/uploads/2024/11/OnePlus-13-vs-Galaxy-S24-Ultra.jpeg?fit=1920%2C1080&p=1',
+
+        title: ["We've seen Samsung make videos several times before. Now Apple is releasing a video criticizing Samsung again. ", "ធ្លាប់តែឃើញ Samsung ធ្វើវីដេអូឌឺដង Apple ឥឡូវ បញ្ចេញវីដេអូ ផ្លែផ្កាដាក់ឲ្យ Samsung ម្តង", "Samsung"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News/Life&Society/Title_Cambodia_1.html'
+      },
+      {
+        id: 2,
+        image: 'https://tech-cambodia.com/cms/assets/ff89ccb0-e48b-4321-89ef-429dc15f8ed9',
+        title: ["How big is this! The Red Magic 10 Series will pack a 7,000mAh battery as well as...", "ធំអីធំយ៉ាងនេះ! Red Magic 10 Series នឹងញាត់ថ្មទំហំ 7,000mAh ក៏ដូចជា...", "Bettery", "Power", "ថ្ម"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News/Life&Society/Title_Cambodia_5.html'
+      },
+      {
+        id: 3,
+        image: 'https://tech-cambodia.com/cms/assets/db658993-d3db-4395-a72e-7ea607983402',
+        title: ["It's finally here! The new Kindle paperback e-reader is now available...", "ទីបំផុតមានហើយ! ម៉ាស៊ីនអានសៀវភៅ ដូចក្រដាសសៀវភៅ Kindle ចេញថ្មី ឥឡូវបង្ហាញ...", "Kindle", "Kidle"],
+        // paragraph: 'This is a brief description of the news article. It can be about any topic you like.',
+        link: '/Language/News/Life&Society/Title_Cambodia_6.html'
+      },
+      {
+        id: 4,
+        image: 'https://tech-cambodia.com/cms/assets/1f6be551-66d8-4815-b429-254384c0aa6b',
+        title: [" Tesla reveals the price of its affordable Optimus Gen2 robot, which can be used as a houseboy", "Tesla បង្ហើបតម្លៃ រូបូត Optimus Gen2 តម្លៃធូរៗ អាចយកមកធ្វើគូលីនៅផ្ទះបាន", "Tesla", "Tesla Model Y"],
+        link: '/Language/News/Life&Society/Title_Cambodia_3.html'
+      },
+      {
+        id: 5,
+        image: 'https://tech-cambodia.com/cms/assets/f9007160-1ed7-4b69-a1fa-d7664d7208a4',
+        title: ["Apple quietly releases new iPad Mini with A17 Pro chip and Apple Intelligence ", "ស្ងាត់ៗ Apple លួចបញ្ចេញ iPad Mini ជំនាន់ថ្មី ញាត់ឈីប A17 Pro ប្រើ Apple Intelligence", "AI Apple", "Apple"],
+        link: '/Language/News/Life&Society/Title_Cambodia_7.html'
+      },
+      {
+        id: 6,
+        image: 'https://tech-cambodia.com/cms/assets/639ef719-6511-43b1-b1da-9bbcd04f35a7',
+        title: ["TikTok's parent company quietly releases AI-powered headsets that talk directly to AI", "ស្ងាត់ៗ ក្រុមហ៊ុនមេរបស់ TikTok ចេញកាសបញ្ចូលព្រលឹង AI និយាយផ្ទាល់ជាមួយ AI ", "Tiktok", "tiktok", "Titok"],
+        link: '/Language/News/Life&Society/Title_Cambodia_8.html'
+      },
+      {
+        id: 7,
+        image: 'https://tech-cambodia.com/cms/assets/fdfb8057-08a1-46c5-9c21-0c630f4b0be3',
+        title: ["Less confusing Screenshot Chat, they are very annoying, they know they will be ruined if this function is enabled.", "តិចច្រឡំ Screenshot Chat គេផ្តេសផ្តាស គេដឹងខ្ទេចគ្មានសល់ទេ បើសិនបើកមុខងារមួយនេះ", "Facebook"],
+        link: '/Language/News/Life&Society/Title_Cambodia_2.html'
+      },
+      {
+        id: 8,
+        image: 'https://liftedasia.com/assets/content_images/VannDa-beer-660x440.webp',
+        title: ["Top rapper of Cambodian<br> Mr. Man Vannda", "កំពូល តារាចម្រៀងប្រចាំប្រទេសកម្ពុជា ", "លោក​ ម៉ាន់ វណ្ណដា", "Vannda", "vannda"],
+        link: '/Language/News/Life&Society/Title_Cambodia_4.html'
+      },
+      {
+        id: 9,
+        image: 'https://tech-cambodia.com/cms/assets/16662ed5-f006-44e6-8a11-e00201407d6d',
+        title: ["It's clear, much cheaper than before! This is the official price of the company selling the iPhone 16 Pro ", "ច្បាស់ហើយ ធូរជាងមុនឆ្ងាយណាស់! នេះជាតម្លៃផ្លូវការរបស់ក្រុមហ៊ុន លក់ iPhone 16 Pro ", "apple"],
+        link: '/Language/News/Life&Society/Title_Cambodia_9.html'
+      },
+
+      // {
+      //   id: 10,
+      //     image: 'https://www.digitaltrends.com/wp-content/uploads/2024/11/OnePlus-13-vs-Galaxy-S24-Ultra.jpeg?fit=1920%2C1080&p=1',
+      //       title: ['Google Pixel 6', 'ទូរស័ព្ទ Google Pixel 6'],
+      //         paragraph: 'Capture the best moments with the new Google Pixel 6.',
+      //           link: '/ExampleTable/number/ten.html'
+      // }
+    ];
+
+    // Function to display items
+    const displayItems = (items) => {
+      const productList = document.getElementById('productList');
+      productList.innerHTML = items.map(item => {
+        return `
+        <div class="news-item">
+          <a href="${item.link}">
+            <img src="${item.image}" alt="${item.title[0]}">
+            <h3>${item.title[0]}</h3>
+           
+          </a>
+        </div>
+      `;
+      }).join('');
+    };
+
+    // Function to search items
+    function searchItems() {
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+      const filteredItems = searchNews.filter(item => {
+        return item.title.some(title => title.toLowerCase().includes(searchQuery));
+      });
+      displayItems(filteredItems);
+    }
+
+    // Function to clear the search
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      displayItems(searchNews); // Display all items when search is cleared
+    }
+
+    // Initial display of all items
+    displayItems(searchNews);
+
+
+
+    // key support the Enter   
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        searchItems();
+      }
+    }
+  </script>
+  <!-- End Of Scroll -->
+
+  <!-- End Of Scroll -->
+
+  <span class="nav-class">
+    <div id="scroll-end-table" class="hidden-table responsive-table-wrapper">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th>Relation</th>
+            <th>Logo</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Social Media</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CEO</td>
+            <td>
+              <a href="https://web.facebook.com/thyrith.heng">
+                <img src="/image/Profile.jpg" alt="Logo" class="logoEnd">
+              </a>
+            </td>
+            <td>Heng Thirith</td>
+            <td>(+855) 069-297-337</td>
+            <td>
+              <a href="https://web.facebook.com/thyrith.heng" target="_blank" class="aEnd"><i
+                  class="fab fa-facebook"></i></a>
+              <a href="https://x.com/ThirithH22839" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Assistant</td>
+            <td>
+              <a href="https://web.facebook.com/chea.zhao">
+                <img src="/image/vichea.png" alt="Logo" class="logoEnd">
+              </a>
+            </td>
+            <td>Chorn Chhay Vanichea</td>
+            <td>(+855) 078-551-379</td>
+            <td>
+              <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i
+                  class="fab fa-facebook"></i></a>
+              <a href="https://web.facebook.com/chea.zhao" target="_blank" class="aEnd"><i class="fab fa-x"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </span>
+
+
+  <script src="/MyKhmerNews/MKNs.js"></script>
+
+</body>
+
+</html>
